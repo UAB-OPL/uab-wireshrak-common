@@ -26,6 +26,23 @@ case "$1" in
         # reconfigure package
         [ -e /var/lib/dpkg/info/wireshark-common.postinst ] && \
             /var/lib/dpkg/info/wireshark-common.postinst configure
+
+
+        # config pam-group wireshark
+        _FILE_GROUP=$(cat /usr/share/uab-wireshark-common/wireshark.group.conf )
+
+        GROUP_CFG="/etc/security/group.conf"
+
+
+
+        if [ $( grep -e "^# WIRESHARK_INI" -e "^# WIRESHARK_END" $GROUP_CFG | wc -l ) -eq 2 ]
+        then
+		sed -i '/# WIRESHARK_INI/,/# WIRESHARK_END/d' $GROUP_CFG
+		
+        fi
+        echo "# WIRESHARK_INI"	>> $GROUP_CFG
+        echo "$_FILE_GROUP" 	>> $GROUP_CFG
+        echo "# WIRESHARK_END"	>> $GROUP_CFG
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

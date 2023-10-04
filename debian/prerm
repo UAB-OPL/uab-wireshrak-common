@@ -27,6 +27,14 @@ case "$1" in
         # reconfigure
         [ -e /var/lib/dpkg/info/wireshark-common.postinst ] && \
             /var/lib/dpkg/info/wireshark-common.postinst configure
+
+        # config pam-group wireshark
+        GROUP_CFG="/etc/security/group.conf"
+
+        if [ $( grep  -e "^# WIRESHARK_INI" -e "^# WIRESHARK_END" $GROUP_CFG | wc -l ) -eq 2 ]
+        then
+		sed -i.dpkg-old '/# WIRESHARK_INI/,/# WIRESHARK_END/d'  $GROUP_CFG  || true
+        fi
     ;;
 
     failed-upgrade)
