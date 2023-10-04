@@ -1,0 +1,14 @@
+Source: uab-wireshark-common
+Section: misc
+Priority: optional
+Maintainer: Jordi Román Mejias <Jordi.Roman@uab.cat>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.0
+#Rules-Requires-Root: no
+
+Package: uab-wireshark-common
+Architecture: all
+Depends: ${misc:Depends}, debconf, wireshark-common
+Suggest: uab-libpam-modules-group | uab-pam-group
+Description: Setup wireshark-common for run on unpriviligied users
+ This package setup wireshark-common for run on unpriviligied users

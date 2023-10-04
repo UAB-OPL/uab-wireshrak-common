@@ -1,0 +1,7 @@
+# This is a example template.
+# Not used by this package 
+
+# Run with debconf-set-selections <elNombreDeEsteFichero>
+
+# wireshark-common setup
+wireshark-common wireshark-common/install-setuid boolean true

@@ -1,0 +1,5 @@
+uab-wireshark-common (1.0+openuab04~00) jammy; urgency=medium
+
+  * Setup wireshark-common for run on unpriviligied users
+
+ -- Jordi Román Mejias <Jordi.Roman@uab.cat>  Wed, 04 Oct 2023 10:02:29 +0000
