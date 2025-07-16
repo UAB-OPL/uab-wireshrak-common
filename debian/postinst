@@ -27,7 +27,6 @@ case "$1" in
         [ -e /var/lib/dpkg/info/wireshark-common.postinst ] && \
             /var/lib/dpkg/info/wireshark-common.postinst configure
 
-
         # config pam-group wireshark
         _FILE_GROUP=$(cat /usr/share/uab-wireshark-common/wireshark.group.conf )
 
@@ -43,6 +42,9 @@ case "$1" in
         echo "# WIRESHARK_INI"	>> $GROUP_CFG
         echo "$_FILE_GROUP" 	>> $GROUP_CFG
         echo "# WIRESHARK_END"	>> $GROUP_CFG
+
+        # config himmelblau
+        [ -x /usr/lib/uab-himmelblau/uab_setup_himmelblau_cfg ] && /usr/lib/uab-himmelblau/uab_setup_himmelblau_cfg
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

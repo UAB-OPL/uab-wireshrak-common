@@ -1,1 +1,2 @@
 wireshark.group.conf    usr/share/uab-wireshark-common/
+wireshark.himmelblau.grp      usr/lib/uab-himmelblau/groups.d/
